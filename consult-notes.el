@@ -194,7 +194,7 @@ and DIR is the directory to find notes."
     :face     consult-file
     :annotate ,(apply-partially consult-notes-file-dir-annotate-function name dir)
     :items    ,(lambda ()
-                 (let* ((files (directory-files dir nil consult-notes-file-match)))
+                 (let* ((files (directory-files-recursively dir nil consult-notes-file-match)))
                    files))
     :state    ,(lambda ()
                  (let ((open (consult--temporary-files))
